@@ -73,7 +73,11 @@ exports.userTotalPoint = async (req, res) => {
                 $group: { _id: null, rewardPoint: { $sum: "$rewardPoint" } },
             },
         ])
-        console.log(data)
+
+        res.status(200).json({
+            data
+        })
+
     } catch (error) {
         res.status(400).json({
             Message: "Something Went Wrong ...!"
